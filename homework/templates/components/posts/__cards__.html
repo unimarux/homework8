@@ -1,0 +1,27 @@
+  <!-- Card-->
+  <div class="col">
+    <div class="card h-100">
+      <a href="{% url 'detail' book.pk %}">
+        {% if book.photo %}
+        <img src="{{ book.photo.url }}" class="card-img-top" alt="Skyscrapers" height="500px"/>
+        {% else %}
+      <img src="https://www.wpbeginner.com/wp-content/uploads/2016/03/uploadfailed.jpg" class="card-img-top" alt="Eror Photo uploading"/>
+      {% endif %}
+      </a>
+      <div class="card-body">
+        <a href="{% url 'detail' book.pk %}">
+        <h5 class="card-title">{{ book.title }}</h5>
+        </a>
+        <p class="card-text">
+          {{ book.summary|truncatewords:15 }}
+        </p>
+      </div>
+      <div class="card-footer d-flex justify-content-around">
+        <small class="text-muted">Yuklangan sana: {{ book.publication_date }}</small>
+        <a href="{% url 'books_by_category' book.category.id  %}">
+        <small class="text-muted">Categoriya: {{ book.category.name }}</small>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Card-->

@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Category,Book
+from .models import Type,Flower
 
-admin.site.register(Category)
+admin.site.register(Type)
 
 
 class AdminView(admin.ModelAdmin):
-    list_display = ('pk','title' , 'category' , 'publication_date' , 'genre')
+    list_display = ('pk','title' , 'category' , 'publication_date')
     list_display_links = ('pk','title')
     list_per_page = 10
 
-admin.site.register(Book , AdminView)
+admin.site.register(Flower , AdminView)
